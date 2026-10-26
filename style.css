@@ -1,0 +1,128 @@
+/* ===== هوية سكون: الألوان من دليل الهوية ===== */
+:root {
+  --brand: #4ac7da;     /* لون العلامة */
+  --t1: #68d0df; --t2: #86dae5; --t3: #a5e3ec; --t4: #c3ecf2; --t5: #e1f6f8;
+  --d1: #3ea6b4; --d2: #318590; --d3: #25646c; --d4: #194248; --d5: #0c2124;
+  --ink: var(--d4);
+  --font: "Akhbar MT", "Noto Naskh Arabic", "Segoe UI", Tahoma, serif;
+  --star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cpath d='M30 10C30 24 36 30 50 30 36 30 30 36 30 50 30 36 24 30 10 30 24 30 30 24 30 10zM90 70C90 84 96 90 110 90 96 90 90 96 90 110 90 96 84 90 70 90 84 90 90 84 90 70z' fill='white' fill-opacity='.16'/%3E%3C/svg%3E");
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { font-family: var(--font); color: var(--ink); background: #fff; font-size: 18px; line-height: 2; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 3px solid var(--d2); outline-offset: 3px; border-radius: 8px; }
+.wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+.narrow { max-width: 740px; }
+.center { text-align: center; }
+
+/* النجمة (عنصر الهوية) */
+.star { display: inline-block; width: 1em; height: 1em; background: var(--brand);
+  clip-path: path("M8 0C8 5 11 8 16 8 11 8 8 11 8 16 8 11 5 8 0 8 5 8 8 5 8 0z"); transform: scale(1); }
+.star { clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
+.star.big { width: 34px; height: 34px; margin-bottom: 8px; }
+
+/* الشريط العلوي */
+.header { position: sticky; top: 0; z-index: 30; background: rgba(225, 246, 248, .88); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: box-shadow .3s; }
+.header.scrolled { box-shadow: 0 6px 24px rgba(25, 66, 72, .12); }
+.bar { display: flex; align-items: center; gap: 24px; padding-block: 10px; }
+.logo img { width: 112px; height: auto; }
+.nav { display: flex; gap: 6px; margin-inline-start: auto; }
+.nav a { padding: 4px 14px; border-radius: 99px; font-weight: 500; font-size: 1rem; transition: background .2s; }
+.nav a:hover { background: var(--t4); }
+.burger { display: none; width: 42px; height: 42px; border: 0; background: var(--t4); border-radius: 12px; cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; }
+.burger span { width: 20px; height: 2px; background: var(--d4); border-radius: 2px; }
+
+/* الأزرار */
+.btn { display: inline-block; padding: 10px 30px; border-radius: 99px; font-weight: 700; font-size: 1.02rem; cursor: pointer; background: var(--d3); color: #fff; border: 2px solid var(--d3); transition: transform .2s, background .2s; font-family: var(--font); }
+.btn:hover { transform: translateY(-2px); background: var(--d4); border-color: var(--d4); }
+.btn.outline { background: transparent; color: var(--d3); }
+.btn.outline:hover { background: var(--t4); color: var(--d4); }
+.btn.small { padding: 4px 22px; font-size: .95rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.actions.c { justify-content: center; }
+
+/* الواجهة */
+.hero { background: var(--t5); position: relative; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: 0; background-image: var(--star); filter: brightness(0) saturate(100%) invert(75%) sepia(40%) saturate(500%) hue-rotate(140deg); opacity: .45; pointer-events: none; }
+.hero-grid { position: relative; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: center; gap: 48px; padding-block: 64px 80px; }
+.hero-text, .hero-img { min-width: 0; }
+.eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: .95rem; color: var(--d2); font-weight: 600; margin-bottom: 8px; }
+h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.5; font-weight: 700; color: var(--d4); }
+h1 em { font-style: normal; color: var(--d1); }
+.lead { max-width: 46ch; margin-top: 12px; color: var(--d3); }
+.hero-img { position: relative; }
+.hero-img img { width: 100%; border-radius: 36px 36px 120px 36px; box-shadow: 0 24px 60px rgba(25, 66, 72, .22); aspect-ratio: 4 / 3.4; object-fit: cover; }
+.hero-img .star { position: absolute; background: #fff; box-shadow: none; }
+.s1 { width: 44px; height: 44px; top: -16px; inset-inline-start: -14px; }
+.s2 { width: 26px; height: 26px; bottom: 30px; inset-inline-end: -10px; background: var(--brand) !important; }
+
+/* الأقسام */
+.section { padding-block: 88px; }
+.section.tint { background: var(--t5); }
+h2 { font-size: clamp(1.9rem, 4vw, 2.5rem); line-height: 1.5; color: var(--d3); font-weight: 700; margin-bottom: 14px; }
+h3 { font-size: 1.3rem; color: var(--d3); line-height: 1.6; margin-bottom: 6px; }
+.center p + p { margin-top: 14px; }
+.head { text-align: center; margin-bottom: 44px; }
+.head p { color: var(--d2); }
+
+.grid { display: grid; gap: 22px; }
+.grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.card { background: #fff; border-radius: 26px; padding: 30px 26px; border: 1px solid var(--t4); transition: transform .25s, box-shadow .25s; }
+.card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(25, 66, 72, .12); }
+.card .star { width: 26px; height: 26px; margin-bottom: 14px; }
+.card p { color: var(--d3); font-size: 1rem; line-height: 1.9; }
+.card a { display: inline-block; margin-top: 12px; color: var(--d2); font-weight: 700; font-size: .98rem; border-bottom: 2px solid var(--t2); }
+.card a:hover { color: var(--d4); border-color: var(--d4); }
+
+/* المعرض */
+.gallery { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); grid-template-rows: 1fr 1fr; gap: 18px; height: min(620px, 80vw); }
+.gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 26px; }
+.g1 { grid-row: 1 / 3; }
+
+/* الشريط العميق */
+.band { background: var(--d3) var(--star); padding-block: 72px; color: #fff; }
+.band img { margin: 0 auto 10px; width: 220px; height: auto; }
+.band p { font-size: clamp(1.3rem, 3vw, 1.8rem); }
+
+.phone { font-size: 1.5rem; font-weight: 700; color: var(--d3); letter-spacing: .06em; margin-top: 22px; }
+.footer { background: var(--d5); color: var(--t3); display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 28px; padding: 28px 20px 90px; font-size: .95rem; }
+.footer img { width: 90px; height: auto; opacity: .95; }
+
+.wa-float { position: fixed; inset-block-end: 20px; inset-inline-end: 20px; z-index: 40; display: flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 99px; background: var(--d3); color: #fff; font-weight: 700; cursor: pointer; box-shadow: 0 10px 28px rgba(25, 66, 72, .35); transition: transform .2s; }
+.wa-float:hover { transform: scale(1.05); background: var(--d4); }
+
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s, transform .7s; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 900px) {
+  .grid.four { grid-template-columns: 1fr 1fr; }
+  .grid.three { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .burger { display: flex; margin-inline-start: auto; }
+  .bar .btn.small { display: none; }
+  .nav { display: none; position: absolute; top: 100%; inset-inline: 0; flex-direction: column; background: var(--t5); padding: 10px 20px 18px; box-shadow: 0 14px 24px rgba(25, 66, 72, .12); }
+  .nav.open { display: flex; }
+  .nav a { padding: 8px 14px; }
+  .hero-grid { grid-template-columns: 1fr; padding-block: 40px 56px; gap: 36px; }
+  .section { padding-block: 60px; }
+  .gallery { grid-template-columns: 1fr; grid-template-rows: auto; height: auto; }
+  .gallery img { height: 240px; }
+  .g1 { grid-row: auto; }
+}
+@media (max-width: 480px) { .grid.four { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* لو صورة ما انحمّلت: ما يخرب التصميم */
+.logo-text { font-size: 1.6rem; font-weight: 700; color: var(--d3); }
+.no-img { display: none !important; }
+
+.credit { color: var(--t2); border-bottom: 1px solid var(--d2); font-size: .92rem; }
+.credit:hover { color: #fff; }
